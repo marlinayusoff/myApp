@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h2>Welcome Parents</h2>
+  <p>
+    Please click any function below.
+  </p>
+  <ion-list>
+    <button ion-item (click)="addStudent()">
+      <ion-icon name="person-add" item-start></ion-icon>
+      Add Student
+    </button>
+
+    <button ion-item (click)="viewStudent()">
+      <ion-icon name="people" item-start></ion-icon>
+      View Student
+    </button>
+
+    <button ion-item (click)="attendanceStudent()">
+      <ion-icon name="card" item-start></ion-icon>
+      View Attendance
+    </button>
+
+  </ion-list>
+  <button ion-button full (click)="tryLogout()"> Logout </button>
+</ion-content>

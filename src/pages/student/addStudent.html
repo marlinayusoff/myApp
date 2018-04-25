@@ -1,0 +1,68 @@
+<ion-header>
+
+  <ion-navbar color=primary>
+    <ion-title>
+      Add Student
+    </ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+ 
+<ion-list [(ngModel)]="qrData">
+	
+    <ion-item>
+      <ion-label  floating>Student Name</ion-label>
+      <ion-input type="text" #pelajar_nama></ion-input>
+    </ion-item>
+  
+    <ion-item>
+        <ion-label>School</ion-label>
+       <!-- <ion-refresher (ionRefresh)="doRefresh($event)">
+          <ion-refresher-content
+            pullingIcon="arrow-dropdown"
+            pullingText="Pull to refresh">
+          </ion-refresher-content>
+        </ion-refresher>-->
+        <ion-select [(ngModel)]="school"  #sekolah_id>
+            <ion-option value="{{item.sekolah_id}}" *ngFor="let item of data">{{item.sekolah_nama}}</ion-option>
+        </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label  floating>Age</ion-label>
+      <ion-input type="number" #pelajar_umur></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>School Session</ion-label>
+        <ion-select [(ngModel)]="session"  #pelajar_sesi>
+          <ion-option value="Morning">Morning</ion-option>
+          <ion-option value="Afternoon">Afternoon</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Checkpoint</ion-label>
+      <!--<ion-refresher (ionRefresh)="doRefresh2($event)">
+        <ion-refresher-content
+          pullingIcon="arrow-dropdown"
+          pullingText="Pull to refresh">
+        </ion-refresher-content>
+      </ion-refresher>-->
+
+      <ion-select [(ngModel)]="checkpoint"  #checkpoint_id>
+          <ion-option value="{{item2.checkpoint_id}}" *ngFor="let item2 of data2">{{item2.checkpoint_nama}}</ion-option>
+      </ion-select>
+  </ion-item>
+  
+  </ion-list>
+
+  <button ion-button (click)="registerStudent()"> Add Student </button>
+  <ion-card *ngIf="createdCode">
+      <ngx-qrcode [qrc-value]="createdCode"></ngx-qrcode>
+  </ion-card>
+
+
+</ion-content>
